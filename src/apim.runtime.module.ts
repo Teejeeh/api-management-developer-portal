@@ -71,6 +71,8 @@ import { TenantService } from "./services/tenantService";
 import { UsersService } from "./services/usersService";
 import { ApimSettingsProvider } from "./configuration/apimSettingsProvider";
 
+import { credentialsRuntimeModule } from "./components/custom/credentials/credentials.runtime.module"
+
 export class ApimRuntimeModule implements IInjectorModule {
     public register(injector: IInjector): void {
         injector.bindSingleton("logger", ConsoleLogger);
@@ -132,5 +134,7 @@ export class ApimRuntimeModule implements IInjectorModule {
         injector.bindSingleton("viewStack", ViewStack);
         injector.bindSingleton("sessionManager", DefaultSessionManager);
         injector.bind("tagInput", TagInput);
+
+        injector.bindModule(new credentialsRuntimeModule());
     }
 }

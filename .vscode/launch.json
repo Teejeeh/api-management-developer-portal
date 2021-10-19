@@ -2,6 +2,12 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "API functions",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "${command:azureFunctions.pickProcess}"
+        },
+        {
             "name": "Tests",
             "type": "node",
             "request": "launch",
@@ -23,19 +29,6 @@
                 "NODE_ENV": "development"
             },
             "console": "internalConsole"
-        },
-        {
-            "name": "Publisher",
-            "type": "node",
-            "request": "launch",
-            "protocol": "inspector",
-            "program": "${workspaceFolder}/dist/publisher/index.js",
-            "cwd": "${workspaceRoot}",
-            "env": {
-                "NODE_ENV": "development"
-            },
-            "console": "internalConsole",
-            "sourceMaps": true
         }
     ]
 }

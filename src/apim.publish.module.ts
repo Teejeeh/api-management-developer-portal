@@ -37,6 +37,8 @@ import { ApiProductsModule } from "./components/apis/api-products/ko/apiProducts
 import { RuntimeConfigPublisher } from "./publishing/runtimeConfigPublisher";
 import { RuntimeConfigBuilder } from "./publishing/runtimeConfigBuilder";
 
+import { credentialsPublishModule } from "./components/custom/credentials/credentials.publish.module"
+
 export class ApimPublishModule implements IInjectorModule {
     public register(injector: IInjector): void {
         injector.bindModule(new ListOfApisModule());
@@ -78,6 +80,7 @@ export class ApimPublishModule implements IInjectorModule {
         injector.bindSingleton("runtimeConfigBuilder", RuntimeConfigBuilder);
         injector.bindToCollection("publishers", AadConfigPublisher);
         injector.bindToCollection("publishers", RuntimeConfigPublisher);
-        
+
+        injector.bindModule(new credentialsPublishModule());
     }
 }
