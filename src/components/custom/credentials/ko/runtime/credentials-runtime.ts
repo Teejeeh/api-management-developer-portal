@@ -44,17 +44,15 @@ export class credentialsRuntime {
                 const response = await this.httpClient.send<string>(request);
                 if (response.statusCode !== 200) {
                     console.log("ERROR")
-                    return this.error(response.statusText);
+                    this.error(response.statusText);
                 }
                 const result = JSON.parse(response.toText());
-                console.log(result);
                 this.credentials(result);
-                this.loading(false);
             } catch (e) {
                 console.log("ERROR!")
-                this.loading(false);
-                return this.error("something went wrong");
+                this.error("something went wrong");
             }
+            this.loading(false);
         }
         this.getCredentials = () => CRUDentials("GET");
         this.createCredentials = () => CRUDentials("POST");
