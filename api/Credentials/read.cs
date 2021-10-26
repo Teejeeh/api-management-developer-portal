@@ -22,6 +22,8 @@ namespace Credentials
             };
 
             var applications = await graphClient.Applications.Request(options).GetAsync();
+
+            if (applications.Count < 1) return new OkObjectResult(null);
             var application = applications[0];
 
             var genericResult = new { application.AppId };

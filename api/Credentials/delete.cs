@@ -32,7 +32,7 @@ namespace Credentials
                 .Request()
                 .DeleteAsync();
 
-            return new OkObjectResult(new { });
+            return new OkObjectResult(null);
         }
     }
 }

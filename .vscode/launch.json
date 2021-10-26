@@ -5,7 +5,8 @@
             "name": "API functions",
             "type": "coreclr",
             "request": "attach",
-            "processId": "${command:azureFunctions.pickProcess}"
+            "processId": "${command:azureFunctions.pickProcess}",
+            "cwd": "/api"
         },
         {
             "name": "Tests",
