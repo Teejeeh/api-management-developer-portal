@@ -51,8 +51,9 @@ export class credentialsRuntime {
             } catch (e) {
                 console.log("ERROR!")
                 this.error("something went wrong");
+            } finally {
+                this.loading(false);
             }
-            this.loading(false);
         }
         this.getCredentials = () => CRUDentials("GET");
         this.createCredentials = () => CRUDentials("POST");
