@@ -7,7 +7,7 @@ import { KnownMimeTypes } from "../../../../../models/knownMimeTypes";
 import { KnownHttpHeaders } from "../../../../../models/knownHttpHeaders";
 import { widgetRuntimeSelector } from "../..";
 
-const url = "http://localhost:7071/api/credentials";
+const url = "/api/credentials";
 @RuntimeComponent({
     selector: widgetRuntimeSelector
 })
