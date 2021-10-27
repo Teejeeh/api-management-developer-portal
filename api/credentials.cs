@@ -24,7 +24,7 @@ namespace Credentials
 
             log.LogInformation(token);
             var userid = await new ApiManagement(token).getId();
-            if (userid == null) return new BadRequestObjectResult("Auth code not valid");
+            if (userid == null) return new BadRequestObjectResult("Auth code IS not valid");
 
             switch (req.Method)
             {
