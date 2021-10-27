@@ -21,6 +21,8 @@ namespace Credentials
             // get token in header and request userid with it
             if (!req.Headers.ContainsKey("authorization")) return new BadRequestObjectResult("Auth code not found");
             var token = req.Headers["authorization"].ToString();
+
+            log.LogInformation(token);
             var userid = await new ApiManagement(token).getId();
             if (userid == null) return new BadRequestObjectResult("Auth code not valid");
 
