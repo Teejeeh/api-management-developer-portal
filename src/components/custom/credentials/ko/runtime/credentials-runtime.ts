@@ -37,7 +37,7 @@ export class credentialsRuntime {
             const request: HttpRequest = {
                 url,
                 method,
-                headers: [{ name: KnownHttpHeaders.Authorization, value: accessToken }, { name: KnownHttpHeaders.ContentType, value: KnownMimeTypes.Json }],
+                headers: [{ name: "SharedAccessSignature", value: accessToken }, { name: KnownHttpHeaders.ContentType, value: KnownMimeTypes.Json }],
             };
 
             try {
