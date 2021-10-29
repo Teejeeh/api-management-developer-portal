@@ -42,10 +42,9 @@ export class credentialsRuntime {
 
             try {
                 const response = await this.httpClient.send<string>(request);
+                if (response.statusCode == 204) return;
                 if (![200, 201, 204].includes(response.statusCode)) throw new Error("Error");
-
                 const result = JSON.parse(response.toText());
-                console.log(result);
                 this.credentials(result);
             } catch (e) {
                 console.log("ERROR!")
